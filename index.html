@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>She Can Foundation | NGO</title>
+    <!-- Importing a clean, modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Advanced UI & Responsive Design --- */
+        :root {
+            --primary-color: #e91e63; /* Updated to a warm, empowering pink/red */
+            --secondary-color: #2F2E41;
+            --accent-color: #4CAF50;
+            --text-color: #333;
+            --bg-color: #FAFAFA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling to sections */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation Bar --- */
+        header {
+            background-color: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        /* --- Home Section (Hero) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(250, 250, 250, 0.85), rgba(250, 250, 250, 0.95)), 
+                        url('https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            padding: 0 20px;
+            padding-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+            color: #555;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .btn:hover {
+            background-color: #d81557;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+        }
+
+        /* --- About Section (Elaborated) --- */
+        .about {
+            padding: 100px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background-color: #fff;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #555;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- Services / What We Do Section --- */
+        .what-we-do {
+            padding: 80px 5%;
+            background-color: var(--bg-color);
+            text-align: center;
+        }
+
+        .what-we-do .section-title::after {
+            margin: 10px auto;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* --- Volunteer / Join Us Section --- */
+        .volunteer {
+            padding: 80px 5%;
+            background-color: var(--secondary-color);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .volunteer .section-title {
+            color: #fff;
+        }
+
+        .volunteer p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            opacity: 0.9;
+        }
+
+        /* Form Design */
+        .join-form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #d81557;
+        }
+
+        .google-form-link {
+            display: block;
+            margin-top: 20px;
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #1a1a24;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about {
+                flex-direction: column;
+            }
+            .about-image {
+                margin-top: 30px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none; /* Can be replaced with a hamburger menu */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <a href="#home" class="logo">She Can Foundation</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#what-we-do">What We Do</a></li>
+            <li><a href="#volunteer">Join Us</a></li>
+        </ul>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <h1>Global Vision, <span>Local Action</span></h1>
+        <p>A non-profit organization dedicated to empowering women, creating social transformation, and breaking down barriers so every woman has the opportunity to thrive and succeed.</p>
+        <a href="#about" class="btn">Read Our Story</a>
+    </section>
+
+    <!-- About Section Elaborated -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2 class="section-title">Who We Are</h2>
+            <p><strong>She Can Foundation</strong> is a non-governmental organization registered under the Indian Society Act, 1860. We are driven by a shared vision of creating a world where every woman has the opportunity to thrive.</p>
+            <p>We recognized that there are countless barriers that prevent women from reaching their full potential. That is why we work tirelessly to provide women with the resources, education, and support they need to succeed in their personal and professional lives.</p>
+            <p>Whether you are a student looking to learn without fear of rejection, or a professional aiming to make an impact—our foundation is a safe, empowering space designed to build leaders.</p>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Women studying and working together">
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="what-we-do">
+        <h2 class="section-title">Our Impact Areas</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>📚 Education & Training</h3>
+                <p>We provide internships, mentorship programs, and skill-building seminars to equip women to excel in all spheres of life.</p>
+            </div>
+            <div class="card">
+                <h3>💼 Leadership</h3>
+                <p>We strive to grow the number of women in decision-making positions. We focus on developing more leaders than followers.</p>
+            </div>
+            <div class="card">
+                <h3>🤝 Social Inclusion</h3>
+                <p>Through advocacy campaigns, we raise awareness of women's issues and fight for gender equality and a more equitable society.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer / Join Us Section -->
+    <section id="volunteer" class="volunteer">
+        <h2 class="section-title">Volunteer With Us</h2>
+        <p>Join our team and make a difference. Whether you want to contribute your time, skills, or ideas, there is a place for you to help create real impact.</p>
+
+        <!-- Form that sends directly to the provided email via mailto -->
+        <form class="join-form" action="mailto:anuj.scholar22@gmail.com?subject=New Volunteer Application - She Can Foundation" method="POST" enctype="text/plain">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="Applicant Name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="Applicant Email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="skills">How can you help? (Skills/Interests)</label>
+                <textarea id="skills" name="Skills and Interests" rows="4" placeholder="E.g., Social Media, Fundraising, Teaching..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit Application</button>
+        </form>
+
+        <!-- Alternative link if you create a Google Form later -->
+        <a href="https://forms.google.com/" target="_blank" class="google-form-link">Or click here to apply via our Google Form</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 She Can Foundation. Reg. under Indian Society Act, 1860.</p>
+        <p>Contact: anuj.scholar22@gmail.com</p>
+    </footer>
+
+</body>
+</html>
